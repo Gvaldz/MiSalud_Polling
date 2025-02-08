@@ -75,7 +75,7 @@ func (r *DoctorRepo) Delete(idDoctores int32) error {
 }
 
 func (r *DoctorRepo) GetUpdatedSince(since string) ([]entities.Doctor, error) {
-	query := "SELECT id_doctores, cedula, nombres, apellidos, especialidad FROM doctores WHERE updated_at > ?"
+	query := "SELECT idDoctores, cedula, nombres, apellidos, especialidad FROM doctores WHERE updated_at > ?"
 	rows, err := r.db.Query(query, since)
 	if err != nil {
 		return nil, err
